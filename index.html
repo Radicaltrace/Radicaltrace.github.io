@@ -115,7 +115,7 @@ function NameAFunctionName(username,password) {
           crossDomain: true,
           success:function(data){
                var resp = JSON.stringify(data);
-            console.log(data);
+            console.log(data.usertoken);
             console.log(password);
             var access_token=1;
              //var lol= getParams(window.location.href);
