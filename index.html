@@ -109,7 +109,7 @@ function NameAFunctionName(username,password) {
           url: 'https://myschoolguru.in/alexa/login/',
           type: 'POST',
           data: formData,            
-          success: function (data, textStatus, xhr) {
+          success:function(data){
             console.log(username);
             console.log(password);
             var access_token=data;
@@ -124,7 +124,7 @@ function NameAFunctionName(username,password) {
               }
               
           },
-          error: function (xhr, textStatus, errorThrown) {
+          error: function (XHR, status, response) 
             console.log(errorThrown);
           }
         });
