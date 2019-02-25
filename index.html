@@ -1,5 +1,3 @@
-
-<!-- saved from url=(0909)https://edunexttech.github.io/Alexa-login/?client_id=alexa-edunext-skill&response_type=token&state=A2SAAEAEGK1lenIk5ltOUHmBBvY_xkB8BNxSdrx5sSm5pXa_B0hV_SxbgIa40B81GYqqqJ8I8WY19496OOwFQgMtXPhuuKNcMw9gpgiMcYvkog4PLtKMjCVC_Vxtj5u9QY2wAuCmF0T3kZpRWUlLdJGNTusjxqrBPnbX1XOVPuQIXzCxObV9q7qXDRBda-m9bGO_F7sM1H8XOScbF4QOEckPAcfaHlRZ9SMUdvnUmuLxLOOJniaBGcZs5imvq0zN8OcE674cIqKW5mpSaMbRP6-h0xxHI7HgyYiVTqNc0yi3ZnzkDf1JEjlB8IxQkJPuDupwvEg-ZFaGTyzKkiH333QR_4DbuFJhsTiKtm92xsMAq7bqrDOQ1EjZptYpFfHWgXRshR4LaKED-oYhT9U8Wd1YwYecazFhaFJ8NcwtU_KRXXf7dQ6-c6RgzjuzG7THMT9879osC7LZ1K27ri6Bj93uJUcK9RZihyJtL5D8OscFcjdtYwSiv0P27lE2hQxfGqgwddTDQgZaplu0lP2PDY8aa1EI2Xkv_Vf3hGHyHsccZqVMkEUFR8Z4VYo_9Ur2nf5F2CKoWfis69OHXUTKSxFbt3snqxrpls73Zg6xYa3pW9BcnRCNmdTqF2vwAiD3bbL-TgaoNFCFihzlsaOes4GgbLxMVW-R_c_JVKauP53nCjanFtCExg&redirect_uri=https%3A%2F%2Flayla.amazon.com%2Fspa%2Fskill%2Faccount-linking-status.html%3FvendorId%3DM2AKW6YGYF7J90 -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -103,6 +101,43 @@
 </body>
 <script type="text/javascript">
    
+function NameAFunctionName(username,password) {
+
+  var formData = { 'userid' : username, 'pwd' : password  };
+
+        $.ajax({
+          url: 'https://myschoolguru.in/alexa/login',
+          type: 'POST',
+          data: formData,
+          crossDomain: true,
+          success: function (data, textStatus, xhr) {
+            console.log(username);
+            console.log(password);
+            var access_token=data;
+             var lol= getParams(window.location.href);
+              // console.log(lol.state);
+              var state=lol.state;
+              console.log(access_token);
+              if (access_token){
+                console.log('password is correct');
+                window.location.href = "https://pitangui.amazon.com/spa/skill/account-linking-status.html?vendorId=M2YAZDQXECYS34#state="+state+"&access_token="+access_token+"&token_type=Bearer";
+                return false;
+              }
+              
+          },
+          error: function (xhr, textStatus, errorThrown) {
+            console.log(errorThrown);
+          }
+        });
+    }   
+
+  function myFunction(){
+  var username = document.getElementById("inputEmail").value;
+  var password = document.getElementById("inputPassword").value;
+  // var access_token='ZWR1aW5zaWdodF9fX2VkdW5leHRfX2FsZXhhX19fOTA2';
+  NameAFunctionName(username,password);
+  return false;
+};
 
 var getParams = function (url) {
   var params = {};
