@@ -113,15 +113,15 @@ function NameAFunctionName(username,password) {
             console.log(username);
             console.log(password);
             var access_token=data;
-             var lol= getParams(window.location.href);
+             //var lol= getParams(window.location.href);
               // console.log(lol.state);
-              var state=lol.state;
+              //var state=lol.state;
               console.log(access_token);
-              if (access_token){
-                console.log('password is correct');
-                window.location.href = "https://pitangui.amazon.com/spa/skill/account-linking-status.html?vendorId=M2YAZDQXECYS34#state="+state+"&access_token="+access_token+"&token_type=Bearer";
-                return false;
-              }
+//               if (access_token){
+//                 console.log('password is correct');
+//                 window.location.href = "https://pitangui.amazon.com/spa/skill/account-linking-status.html?vendorId=M2YAZDQXECYS34#state="+state+"&access_token="+access_token+"&token_type=Bearer";
+//                 return false;
+//               }
               
           },
           error: function (XHR, status, response) 
