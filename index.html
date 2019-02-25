@@ -108,9 +108,7 @@ function NameAFunctionName(username,password) {
         $.ajax({
           url: 'https://myschoolguru.in/alexa/login/',
           type: 'POST',
-         data: formData, 
-          dataType: 'JSON',
-          async: true,          
+         data: formData,     
             headers: {
             //WRITE IF THEIR HAVE SOME HEADER REQUEST OR DATA
           },
@@ -120,9 +118,9 @@ function NameAFunctionName(username,password) {
             console.log(username);
             console.log(password);
             var access_token=resp[0]['usertoken'];
-             var lol= getParams(window.location.href);
+             //var lol= getParams(window.location.href);
               // console.log(lol.state);
-              var state=lol.state;
+              //var state=lol.state;
               console.log(access_token);
               if (access_token){
                 console.log('password is correct');
