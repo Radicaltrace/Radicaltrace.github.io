@@ -109,6 +109,9 @@ function NameAFunctionName(username,password) {
           url: 'https://myschoolguru.in/alexa/login',
           type: 'POST',
           data: formData,
+             headers: {
+            //WRITE IF THEIR HAVE SOME HEADER REQUEST OR DATA
+          },
           crossDomain: true,
           success: function (data, textStatus, xhr) {
             console.log(username);
