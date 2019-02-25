@@ -114,8 +114,8 @@ function NameAFunctionName(username,password) {
           },
           crossDomain: true,
           success:function(data){
-              var resp = $.parseJSON(data);
-            console.log(data);
+              var resp = JSON.parse(data);
+            console.log(resp);
             console.log(password);
             var access_token=1;
              //var lol= getParams(window.location.href);
