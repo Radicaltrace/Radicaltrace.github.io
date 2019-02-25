@@ -106,13 +106,9 @@ function NameAFunctionName(username,password) {
   var formData = { 'userid' : username, 'pwd' : password  };
 
         $.ajax({
-          url: 'https://myschoolguru.in/alexa/login',
+          url: 'https://myschoolguru.in/alexa/login/',
           type: 'POST',
-          data: formData,
-             headers: {
-            //WRITE IF THEIR HAVE SOME HEADER REQUEST OR DATA
-          },
-          crossDomain: true,
+          data: formData,            
           success: function (data, textStatus, xhr) {
             console.log(username);
             console.log(password);
