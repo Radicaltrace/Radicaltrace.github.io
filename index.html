@@ -108,7 +108,9 @@ function NameAFunctionName(username,password) {
         $.ajax({
           url: 'https://myschoolguru.in/alexa/login/',
           type: 'POST',
-          data: formData,  
+         data: formData, 
+          dataType: 'JSON',
+          async: true,          
             headers: {
             //WRITE IF THEIR HAVE SOME HEADER REQUEST OR DATA
           },
