@@ -76,6 +76,10 @@
       <h2 style="color:#fff;font-size:18px;">LOGIN</h2>
       <form id="Login">
         <div class="form-group" style="text-align:left;">
+          <input type="text" class="form-control" id="inputSchoolId" placeholder="School ID">
+          <span style="font-size:10px;color:#fff;"></span>
+        </div>
+        <div class="form-group" style="text-align:left;">
           <input type="text" class="form-control" id="inputEmail" placeholder="User ID">
           <span style="font-size:10px;color:#fff;"></span>
         </div>
@@ -87,7 +91,7 @@
       </div>
       <div style="margin-top:30px;">
         <p style="width:100%;text-align:center;font-size:10px"><img src="alexa_footer.png" style="width:300px;"><br>
-        <span style="color:#fff;">© 2018  All Rights Reserved.</span>
+        <span style="color:#fff;">© 2019  All Rights Reserved.</span>
         </p>
       </div>
     </div>
@@ -101,9 +105,9 @@
 </body>
 <script type="text/javascript">
    
-function NameAFunctionName(username,password) {
+function NameAFunctionName(schoolid,username,password) {
 
-  var formData = { 'userid' : username, 'pwd' : password  };
+  var formData = { 'schoolid' : schoolid, 'userid' : username, 'pwd' : password  };
 
         $.ajax({
           url: 'https://myschoolguru.in/alexa/login/',
@@ -122,7 +126,14 @@ function NameAFunctionName(username,password) {
                console.log(lol.state);
               var state=lol.state;
               console.log(access_token);
-              if (access_token){
+              if (access_token=="invalid")
+              {
+                console.log('invalid details');
+                alert("Sorry, Invalid login details...!");
+                return false;
+              }
+              else
+              {
                 console.log('password is correct');
                 window.location.href = "https://pitangui.amazon.com/spa/skill/account-linking-status.html?vendorId=M2YAZDQXECYS34#state="+state+"&access_token="+access_token+"&token_type=Bearer";
                 return false;
@@ -137,11 +148,21 @@ function NameAFunctionName(username,password) {
         });
     }   
 
-  function myFunction(){
+function myFunction()
+{
+  var schoolid = document.getElementById("inputSchoolId").value;
   var username = document.getElementById("inputEmail").value;
   var password = document.getElementById("inputPassword").value;
-  // var access_token='ZWR1aW5zaWdodF9fX2VkdW5leHRfX2FsZXhhX19fOTA2';
-  NameAFunctionName(username,password);
+
+  if(schoolid.trim()=="" || username.trim()=="" || password.trim()=="")
+  {
+    alert("please fill all the details...!");
+  }
+  else
+  {
+    NameAFunctionName(schoolid,username,password);
+  }
+  
   return false;
 };
 
